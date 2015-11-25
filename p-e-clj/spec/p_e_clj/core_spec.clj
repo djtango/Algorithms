@@ -3,5 +3,5 @@
             [p-e-clj.core :refer :all]))
 
 (describe "a test"
-  (it "FIXME, I fail."
+  (it "Core specfile."
     (should= 0 0)))

@@ -1,11 +1,11 @@
-function PrimeFactors() {
+var primeFactors = {
 
 };
 
 PrimeFactors.prototype.isPrime = function(p){
   var listPrimes = [2, 3]
   var isPrime = function(prime){
-    return p % prime != 0;
+    return p % prime !== 0;
   }
   var and = function(a, b){
       return a && b;
@@ -13,7 +13,7 @@ PrimeFactors.prototype.isPrime = function(p){
   this._findPrimesUptoRoot(p, listPrimes)
   return listPrimes.map(isPrime)
                    .reduce(and);
-  };
+};
 
 PrimeFactors.prototype.genxPrimes = function(x){
   if (x == 1) { return [2]; };
@@ -33,10 +33,12 @@ PrimeFactors.prototype._findPrimesUptoRoot = function(p, listPrimes){
 };
 
 PrimeFactors.prototype.nextPrime = function(listPrimes){
-    var i = listPrimes[listPrimes.length - 1]
-    do {
+  var i = listPrimes[listPrimes.length - 1]
+  var notPrime = function(prime){ return i % prime === 0; }
+  var or = function(first, second){ return first || second }
+  do {
     i += 2;
-  } while (listPrimes.map(function(eachPrime){ return i % eachPrime === 0; }).reduce(function(first, second){ return first || second }));
+  } while (listPrimes.map(notPrime).reduce(or));
   listPrimes.push(i);
   return listPrimes;
 };
@@ -47,7 +49,9 @@ PrimeFactors.prototype.factorise = function(p, listPrimes){
   if (this._isFactorised(p, listPrimes)) {
     return this._mapfactors(p, listPrimes);
   } else {
-    return this._filterOnesAndSort(this._mapfactors(p, listPrimes).concat(this.factorise( p / this._factorsProduct(p, listPrimes), listPrimes)));
+    return this._filterOnesAndSort(this._mapfactors(p, listPrimes)
+                .concat(this.factorise( p / this._factorsProduct(p,listPrimes),
+                listPrimes)));
   };
 };
 
@@ -66,7 +70,27 @@ PrimeFactors.prototype._isFactorised = function(p, listPrimes) {
 };
 
 PrimeFactors.prototype._filterOnesAndSort = function(factors) {
-  return factors.filter((factor) => {
-    return factor !== 1;}).sort((num1, num2) => {
-      return num1 - num2;});
+  var allOnes = function(factor) {
+    return factor !== 1;}
+  var byNumbers = function(num1, num2) {
+      return num1 - num2;}
+  return factors.filter(allOnes)
+                .sort(byNumbers);
 };
+
+/*
+var primeFactors = (function() {
+
+  return {
+    isPrime: isPrime
+  }
+
+  function isPrime() {
+
+  }
+
+  function
+
+  function
+}())
+*/

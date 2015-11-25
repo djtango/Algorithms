@@ -31,3 +31,7 @@
                        (conj fibList (nthFib i))))
     (evenFibsUpToLim n 1 [])))
 
+;soln
+(reduce (fn [firstElement secondElement]
+            (+ firstElement secondElement))
+        (evenFibsUpToLim 4000000))

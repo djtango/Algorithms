@@ -1,4 +1,4 @@
-(ns p-e-clj.problem2-spec
+((ns p-e-clj.problem2-spec
   (:require [speclj.core :refer :all]
             [p-e-clj.problem2 :refer :all]))
 
@@ -12,4 +12,4 @@
   (it "'evenFibsUpToLim produces a list of even Fibonacci Numbers up to a limit"
     (should= '(2 8 34 144)
       (evenFibsUpToLim 200))))
-(run-specs)
+(run-specs))
