@@ -44,7 +44,7 @@ def benchmark(proc)
   proc.call
   "Time take: #{(Time.new - start).round(4)} seconds"
 end
-one_by_nine = proc{solve(blank_puzzle, 0, 0)}
+# one_by_nine = proc{solve(blank_puzzle, 0, 0)}
 
 # arr124 = [ [[1], [2], [4], [ ]] ]
 # permissible_values(blank_puzzle, 0)

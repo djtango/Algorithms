@@ -1,3 +1,4 @@
+
 ONE_TO_FOUR = (1..4).to_a
 
 def permissible_values(puzzle, row, column)
@@ -48,4 +49,4 @@ def update_puzzle(puzzle, value, row, column)
   new_puzzle
 end
 
-solve(blank_puzzle, 0, 0)
+# solve(blank_puzzle, 0, 0)

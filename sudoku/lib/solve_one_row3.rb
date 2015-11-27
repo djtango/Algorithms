@@ -25,5 +25,3 @@ end
 def perm_val(puzzle)
   ONE_TO_FOUR - puzzle
 end
-
-solve(blank_puzzle)
