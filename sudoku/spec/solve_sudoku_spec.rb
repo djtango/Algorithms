@@ -70,7 +70,7 @@ let(:sk4)     { [ [ [ ], [ ], [ ],    [2], [ ], [9],     [ ], [3], [8] ],
 }
 
   let(:sk4_best_before_guessing) {
-      [ [ [nil], [1], [7],    [2], [4], [9],   [6], [3], [8] ],
+      [ [ [5], [1], [7],    [2], [4], [9],     [6], [3], [8] ],
         [ [3], [9], [4],    [6], [8], [1],     [2], [ ], [ ] ],
         [ [8], [6], [2],    [7], [3], [5],     [ ], [ ], [1] ],
         [ [6], [ ], [1],    [ ], [2], [ ],     [ ], [ ], [ ] ],
@@ -118,7 +118,7 @@ let(:sk4)     { [ [ [ ], [ ], [ ],    [2], [ ], [9],     [ ], [3], [8] ],
   context 'base case tests:' do
 
     it 'can recognise when it is at the end of a grid' do
-      expect(end_of_grid?(9, 9)).to eq true
+      expect(end_of_grid?(8, 9)).to eq true
     end
 
     it 'can recognise when the current permutation is insoluble' do
@@ -149,5 +149,8 @@ let(:sk4)     { [ [ [ ], [ ], [ ],    [2], [ ], [9],     [ ], [3], [8] ],
       expect(sieve_sudoku(sk4)).to eq sk4_best_before_guessing
     end
 
+    it 'the algorithm will start guessing when there are no more definite answers' do
+
+    end
   end
 end
