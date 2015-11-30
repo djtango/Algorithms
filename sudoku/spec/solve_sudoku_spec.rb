@@ -141,12 +141,12 @@ let(:sk4)     { [ [ [ ], [ ], [ ],    [2], [ ], [9],     [ ], [3], [8] ],
       expect(fill_in(sk3)).not_to eq sk3
     end
 
-    it 'algorithm will sieve out all the definite answers until it solves the sudoku' do
-      expect(sieve_sudoku(sk3)).to eq sk3_soln
+    it 'algorithm will simplify out all the definite answers until it solves the sudoku' do
+      expect(simplify_sudoku(sk3)).to eq sk3_soln
     end
 
-    it 'if the algorithm cannot solve the sudoku with sieve, it will keep going until there are no more definite answers' do
-      expect(sieve_sudoku(sk4)).to eq sk4_best_before_guessing
+    it 'if the algorithm cannot solve the sudoku with simplify, it will keep going until there are no more definite answers' do
+      expect(simplify_sudoku(sk4)).to eq sk4_best_before_guessing
     end
 
     it 'the algorithm will start guessing when there are no more definite answers' do
